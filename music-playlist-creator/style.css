@@ -5,29 +5,69 @@ body {
     background-color: #f8f8f8;
 }
 
+/* ----- Card Grid ----- */
+
 .playlist-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
+    row-gap: 5vh;
+    column-gap: 10vw
 }
+
+
+/* ----- Playlist Card Layout ----- */
 .playlist-card {
     display: flex;
     flex-direction: column;
     border: solid;
     border-radius: 10px;
     max-height: 40vh;
-    max-width: 15vw;
-
+    max-width: 30vw;
 }
 
 .playlist-card img {
     height: 50%;
-    width: 100%;
-    object-fit: fill;
+    object-fit: cover;
     border-radius: 10px;
+    margin: 5px 5px 0px 5px;
 }
 
+.playlist-card .favorite {
+    flex-grow: 1;
+    display: flex;
+    justify-items: end;
+    align-items: center;
+    height: 100%;
+    margin-left: 5px;
+    gap: 1px
+}
 
+.playlist-card .favorite .heart:hover {
+    fill: #DA4567;
+    cursor: pointer;
+}
+
+.playlist-card .favorite .heart-clicked {
+    fill: #DA4567;
+}
+
+.playlist-card-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    margin-top: 20px
+    
+}
+
+.playlist-card-info h2 {
+    padding: 0px;
+    margin: 0px;
+}
+
+.playlist-card-info p {
+    padding: 0px;
+    margin: 0px;
+}
 /* ----- Model ----- */
 
 .modal-overlay {
@@ -37,12 +77,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    border-color: black;
-    border: line;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: grey;
+    background: rgba(0, 0, 0, 0.3)
 }
 
 /* ----- Model Content ----- */
@@ -77,6 +115,12 @@ body {
     border-radius: 10px;
 }
 
+/* ----- Model Content - Song List ----- */
+.song-list {
+    overflow-y: scroll;
+    padding: 10px;
+    height: 100%;
+}
 
 .song-card {
     width: 100%;
@@ -92,12 +136,6 @@ body {
     height: 50px;
     width: 50px;
     margin-left: 10px;
-}
-
-.song-list {
-    overflow-y: scroll;
-    padding: 10px;
-    height: 100%;
 }
 
 .song-card ul {
