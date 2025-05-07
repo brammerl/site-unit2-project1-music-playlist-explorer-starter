@@ -41,7 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 playlistCards.appendChild(playlistCard)
             })
         })
-        .then(() => addClickEvent())
+        .then(() => {
+            addExitClickEvent()
+            addClickEvent()
+        })
         .catch((error) => {
 
         })
@@ -49,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
 })
 
+// Click event function for playlist tiles
 const addClickEvent = () => {
     const cards = document.querySelectorAll('.playlist-card')
     console.log(cards)
@@ -61,3 +65,14 @@ const addClickEvent = () => {
         })
     })
 }
+
+const addExitClickEvent = () => {
+    const exitModalButton = document.querySelector('.exit-button')
+
+    exitModalButton.addEventListener('click', () => {
+        const overlay = document.querySelector('.modal-overlay')
+        overlay.classList.remove('active')
+    })
+}
+
+
