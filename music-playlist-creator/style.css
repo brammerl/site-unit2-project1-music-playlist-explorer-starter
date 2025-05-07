@@ -72,10 +72,10 @@ header h1 {
 .playlist-card .favorite {
     flex-grow: 1;
     display: flex;
-    justify-items: end;
     align-items: center;
-    height: 100%;
+    align-content: center;
     margin-left: 5px;
+    padding: 0px;
     gap: 1px
 }
 
@@ -88,7 +88,7 @@ header h1 {
     cursor: pointer;
 }
 
-.playlist-card .favorite .heart-clicked {
+.playlist-card .favorite .clicked {
     fill: #DA4567;
 }
 
@@ -96,7 +96,7 @@ header h1 {
     display: flex;
     flex-direction: column;
     margin-left: 5px;
-    margin-top: 20px
+    margin-top: 10px
     
 }
 
@@ -121,8 +121,8 @@ header h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 0.3);
     visibility: hidden;
+    background-color:  #FFF7F3;;
 }
 
 .modal-overlay.active {
@@ -137,7 +137,7 @@ header h1 {
     max-width: 60vw;
     width: 100vw;
     padding: 30px;
-    background-color: white;
+    background: rgba(0, 0, 0, 0.3);
     display: grid;
     grid-template-rows: auto 1fr;
     grid-gap: 20px;
@@ -145,8 +145,6 @@ header h1 {
     align-items: center;
     align-content: center;
     overflow-y: hidden;
-    /* z-index: 100;
-    visibility: visible; */
 }
 
 .modal-header {
@@ -157,7 +155,9 @@ header h1 {
     align-items: center;
     grid-gap: 20px;
     align-items:center;
-    justify-items: center;
+    background-color:  #FAD0C4;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .modal-header .exit-button-container {
@@ -185,12 +185,13 @@ header h1 {
 
 .song-card {
     width: 100%;
-    background-color: lightgrey;
+    background-color:  #FAD0C4;
     display: flex;
     align-items: center;
     margin-top: 5px;
     margin-bottom: 5px;
-    height: 20%
+    height: 20%;
+    border-radius: 10px;
 }
 
 .song-card img {
