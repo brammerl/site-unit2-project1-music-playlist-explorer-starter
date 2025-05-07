@@ -15,8 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const playlists = response.playlists
 
-            console.log(playlists);
-
             playlists.forEach((playlist) => {
                 const {playlist_name, playlist_creator, playlist_art, likeCount, playlistID}  = playlist;
 
