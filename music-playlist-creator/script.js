@@ -84,10 +84,34 @@ const populateModal = (playlist) => {
             <h2>${playlist_name}</h2>
             <h3>Created by: ${playlist_creator}</h3>
         </div>
+        <div>
+            <button> Shuffle </button>
+        </div>
     `
+
+    const shuffleButton = document.querySelector('.modal-header button')
+
+    shuffleButton.addEventListener('click', () => {
+        songListContainer = document.querySelector('.song-list')
+
+        songListContainer.innerHTML = ''
+        const shuffledSongs = shuffleArray(songs)
+        populateSongList(shuffledSongs)
+    })
 
     populateSongList(songs)
     addExitClickEvent()
+}
+
+const shuffleArray = (array) => {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+
+    return array;
 }
 
 const addLikeEventListener = (playlistID) => {
@@ -103,17 +127,11 @@ const addLikeEventListener = (playlistID) => {
             `
             return;
         }
+
         heart.classList.add('clicked')
         likeCount.innerHTML = `
         ${parseInt(likeCount.innerHTML) + 1} 
-    `
-    return;
-
-
-
-           
-        
-        
+    `    
     })
 
 }
