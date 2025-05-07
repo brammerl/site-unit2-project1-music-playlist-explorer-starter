@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const playlists = response.playlists
 
+            console.log(playlists);
+
             playlists.forEach((playlist) => {
                 const {playlist_name, playlist_creator, playlist_art, likeCount, playlistID}  = playlist;
 
@@ -41,9 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 playlistCards.appendChild(playlistCard)
                 addLikeEventListener(playlistID)
             })
-
             addClickEvent(playlists)
-
             
         })
         .catch((error) => {
@@ -58,7 +58,7 @@ const addClickEvent = (playlists) => {
     const cards = document.querySelectorAll('.playlist-card')
 
     cards.forEach((card) => {
-        const playlistID = card.dataset.playlistID
+        const playlistID = card.dataset.playlistId
 
         card.addEventListener('click', (e) => {
             const heart =  document.querySelector(`[data-playlist-id = "${playlistID}"] .heart path`)
@@ -85,9 +85,6 @@ const populateModal = (playlist) => {
         <div class="playlist-info">
             <h2>${playlist_name}</h2>
             <h3>Created by: ${playlist_creator}</h3>
-        </div>
-        <div class="exit-button-container">
-            <button class="exit-button">X</button>
         </div>
     `
 
