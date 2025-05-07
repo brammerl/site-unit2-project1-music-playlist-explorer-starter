@@ -1,17 +1,52 @@
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f8f8;
+    font-family: "Roboto", sans-serif;
+    font-weight: lighter;
+    background-color: #FFF7F3;
 }
+
+.playwrite-us-modern-100{
+    font-family: "Playwrite US Modern", cursive;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+  }
+
+.roboto-100 {
+font-optical-sizing: auto;
+font-family: "Roboto", sans-serif;
+font-weight: 100;
+font-style: normal;
+font-variation-settings:
+    "wdth" 100;
+}
+
+
 
 /* ----- Card Grid ----- */
 
+header {
+    text-align: center;
+    background-color: #FAD0C4;
+    margin-top: 0px;
+    height: 100%;
+    position: sticky;
+    top: 0;
+}
+
+header h1 {
+    height: 100%;
+    padding: 30px;
+    margin-top: 0px;
+    font-family: "Playwrite US Modern", cursive;
+}
+
 .playlist-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: auto auto auto auto;
     row-gap: 5vh;
-    column-gap: 10vw
+    column-gap: 10vw;
+    align-items:center;
+    justify-items: center;
 }
 
 
@@ -21,13 +56,15 @@ body {
     flex-direction: column;
     border: solid;
     border-radius: 10px;
+    border-color: #E6B2BA;
     max-height: 40vh;
-    max-width: 30vw;
+    max-width: 15vw;
+    background-color:  #FFF7F3;
 }
 
 .playlist-card img {
-    height: 50%;
-    object-fit: cover;
+    height: 60%;
+    object-fit: fill;
     border-radius: 10px;
     margin: 5px 5px 0px 5px;
 }
@@ -40,6 +77,10 @@ body {
     height: 100%;
     margin-left: 5px;
     gap: 1px
+}
+
+.playlist-card h2 {
+    font-size: 1rem
 }
 
 .playlist-card .favorite .heart:hover {
@@ -66,12 +107,12 @@ body {
 
 .playlist-card-info p {
     padding: 0px;
-    margin: 0px;
+    margin: 5px 0px 0px 0px;
+
 }
 /* ----- Model ----- */
 
 .modal-overlay {
-    z-index: 100;
     position: fixed;
     top: 0;
     left: 0;
@@ -80,7 +121,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 0.3)
+    background: rgba(0, 0, 0, 0.3);
+    visibility: hidden;
+}
+
+.modal-overlay.active {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.8s ease;
 }
 
 /* ----- Model Content ----- */
@@ -162,5 +210,4 @@ body {
     display: flex;
     margin-right: 10px;
 }
-
 
