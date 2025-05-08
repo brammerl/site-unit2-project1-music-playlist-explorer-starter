@@ -37,7 +37,7 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](ADD
     - [x] Not occupy the entire screen.
     - [] Have a shadow to show that it is a pop-up.
     - [x] Appear floating on the screen.
-    - [] The backdrop should appear darker or in a different shade.
+    - [x] The backdrop should appear darker or in a different shade.
 
 - [x] **Like Playlists**
   - [x] Implement functionality to allow users to like playlists by clicking a heart icon on each playlist tile.
