@@ -4,7 +4,7 @@ Submitted by: Lucia Brammer
 
 Estimated time spent: 5.5 hours
 
-Deployed Application (**required**): [Music Playlist Explorer Deployed Site](ADD_LINK_HERE)
+Deployed Application (**required**): https://glittering-melomakarona-f9a69f.netlify.app/
 
 ### Application Features
 
