@@ -1,53 +1,75 @@
+let playlists = []
 
-document.addEventListener('DOMContentLoaded', () => {
-    fetch('/data/data.json', {
-        method: "GET"
-    })
-        .then((response) => {
-            if(!response) {
-                throw Error(`HTTP Error: ${response.status}`)
-            }
+// Load main page 
+document.addEventListener('DOMContentLoaded', async() => {
 
-            return response.json()
+    // Get saved playlists from local storage
+    const savedPlaylists = localStorage.getItem('playlists');
+
+    // If no saved playlists, fetch from "api". 
+    if (!savedPlaylists) {
+        await fetch('/data/data.json', {
+            method: "GET"
         })
-        .then((response) => {
-            const playlistCards = document.querySelector('.playlist-cards');
-
-            const playlists = response.playlists
-
-            playlists.forEach((playlist) => {
-                const {playlist_name, playlist_creator, playlist_art, likeCount, playlistID}  = playlist;
-
-                const playlistCard = document.createElement('div')
-
-                playlistCard.classList.add('playlist-card')
-                playlistCard.setAttribute('data-playlist-id', playlistID.toString());
-
-                playlistCard.innerHTML = `
-                <img src=${playlist_art}/>
-                <div class="playlist-card-info">
-                    <h2>${playlist_name}</h2>
-                    <p>Created by: ${playlist_creator}</p>
-                </div>
-                <div class="favorite">
-                    <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                    class="heart">
-                        <rect width="24" height="24" fill="none"/>
-                        <path d="M21 8.99998C21 12.7539 15.7156 17.9757 12.5857 20.5327C12.2416 20.8137 11.7516 20.8225 11.399 20.5523C8.26723 18.1523 3 13.1225 3 8.99998C3 2.00001 12 2.00002 12 8C12 2.00001 21 1.99999 21 8.99998Z" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                    <p> ${likeCount} </p>
-                `
-                playlistCards.appendChild(playlistCard)
-                addLikeEventListener(playlistID)
+            .then((response) => {
+                if(!response) {
+                    throw Error(`HTTP Error: ${response.status}`)
+                }
+    
+                return response.json()
             })
-            addClickEvent(playlists)
-            
-        })
-        .catch((error) => {
-            // TO DO: WRITE SOMETHING HERE PLZ!
-        })  
+            .then((response) => {
+                const fetchedPlaylists = response.playlists
+                savePlaylistsToLocalStorage(fetchedPlaylists)
+                playlists = fetchedPlaylists;
+            })
+            .catch((error) => {
+                console.log(error)
+            })  
+    } else {
+        playlists = JSON.parse(savedPlaylists)
+    }
+
+    const playlistCards = document.querySelector('.playlist-cards');
+
+    // Build main page
+    playlists.forEach((playlist) => {
+        const {playlist_name, playlist_creator, playlist_art, likeCount, playlistID}  = playlist;
+
+        const playlistCard = document.createElement('div')
+
+        playlistCard.classList.add('playlist-card')
+        playlistCard.setAttribute('data-playlist-id', playlistID.toString());
+
+        playlistCard.innerHTML = `
+        <img src=${playlist_art}/>
+        <div class="playlist-card-info">
+            <h2>${playlist_name}</h2>
+            <p>Created by: ${playlist_creator}</p>
+        </div>
+        <div class="favorite">
+            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="heart">
+                <rect width="24" height="24" fill="none"/>
+                <path d="M21 8.99998C21 12.7539 15.7156 17.9757 12.5857 20.5327C12.2416 20.8137 11.7516 20.8225 11.399 20.5523C8.26723 18.1523 3 13.1225 3 8.99998C3 2.00001 12 2.00002 12 8C12 2.00001 21 1.99999 21 8.99998Z" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <p> ${likeCount} </p>
+        `
+        playlistCards.appendChild(playlistCard)
+        // Add like event listener to each playlist box
+        addLikeEventListener(playlistID)
+    })
+
+    addClickEvent(playlists)
 })
+
+
+// Helper functions
+
+const savePlaylistsToLocalStorage = (playlists) => {
+    localStorage.setItem('playlists', JSON.stringify(playlists));
+  }
 
 // Click event function for playlist tiles
 const addClickEvent = (playlists) => {
@@ -164,7 +186,7 @@ export const populateSongList = (songs) => {
     addClickEvent()
 }
 
-
+// Click event for closing modal on main page
 const addExitClickEvent = () => {
     const overlay = document.querySelector('.modal-overlay')
 
@@ -173,21 +195,6 @@ const addExitClickEvent = () => {
             overlay.classList.remove('active')
         }
     })
-}
-
-const populateHeader = () => {
-    const header = document.querySelector('.modal-header')
-
-    header.innerHTML = `
-        <img src="./assets/img/playlist.png"/>
-        <div class="playlist-info">
-            <h2>Playlist Title</h2>
-            <h3>Creator Name</h3>
-        </div>
-        <div class="exit-button-container">
-            <button class="exit-button">X</button>
-        </div>
-    `
 }
 
 
