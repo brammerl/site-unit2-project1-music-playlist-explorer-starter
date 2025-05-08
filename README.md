@@ -2,7 +2,7 @@
 
 Submitted by: Lucia Brammer
 
-Estimated time spent: **#** hours spent in total
+Estimated time spent: 5.5 hours
 
 Deployed Application (**required**): [Music Playlist Explorer Deployed Site](ADD_LINK_HERE)
 
