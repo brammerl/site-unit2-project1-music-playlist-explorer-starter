@@ -1,8 +1,6 @@
-📝 `NOTE` Use this template to initialize the contents of a README.md file for your application. As you work on your assignment over the course of the week, update the required or stretch features lists to indicate which features you have completed by changing `[ ]` to `[x]`. (🚫 Remove this paragraph before submitting your assignment.)
-
 ## Unit Assignment: Music Playlist Explorer
 
-Submitted by: **NAME**
+Submitted by: Lucia Brammer
 
 Estimated time spent: **#** hours spent in total
 
@@ -15,7 +13,7 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](ADD
 - [x] **Display Playlists**
   - [x] Dynamically render playlists on the homepage using JavaScript.
     - [x] Playlists should be shown in grid view.
-    - [] Playlist images should be reasonably sized (at least 6 playlists on your laptop when full screen; large enough that the playlist components detailed in the next feature are legible).
+    - [x] Playlist images should be reasonably sized (at least 6 playlists on your laptop when full screen; large enough that the playlist components detailed in the next feature are legible).
   - [x] Fetch data from a provided Javascript file and use it to create interactive playlist tiles.
 
 - [x] **Playlist Components**
