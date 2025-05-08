@@ -89,8 +89,7 @@ const populateModal = (playlist) => {
     const shuffleButton = document.querySelector('.modal-header button')
 
     shuffleButton.addEventListener('click', () => {
-        songListContainer = document.querySelector('.song-list')
-
+        const songListContainer = document.querySelector('.song-list')
         songListContainer.innerHTML = ''
         const shuffledSongs = shuffleArray(songs)
         populateSongList(shuffledSongs)
@@ -135,7 +134,6 @@ const addLikeEventListener = (playlistID) => {
 
 export const populateSongList = (songs) => {
     const songListContainer = document.querySelector('.song-list')
-
     songs.forEach((song) => {
         const {title, artist, album, duration, cover_art} = song
 
