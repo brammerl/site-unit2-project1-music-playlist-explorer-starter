@@ -41,6 +41,7 @@ header h1 {
 nav {
     justify-content: center;
     align-items: center;
+    justify-items: center;
 }
 
 header ul {
@@ -71,6 +72,38 @@ footer {
     margin-top: 10px;
     overflow-x: none;
 }
+
+@media (max-width: 1279px) {
+    .playlist-cards {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    header h1 {
+        height: 100%;
+        padding: 30px 30px 0px 30px;
+        margin-top: 0px;
+        font-family: "Playwrite US Modern", cursive;
+        font-size: 12px;
+    }
+
+    header li {
+        font-size: 10px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .playlist-cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .playlist-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+
 
 
 /* ----- Playlist Card Layout ----- */
@@ -148,9 +181,9 @@ footer {
 
 .modal-overlay.active {
     visibility: visible;
-    opacity: 1;
     transition: opacity 0.8s ease;
 }
+
 
 /* ----- Model Content ----- */
 .modal-content {
@@ -165,14 +198,28 @@ footer {
     border-radius: 10px;
     align-items: center;
     align-content: center;
-    overflow-y: hidden;
+    overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 70vw;
+        overflow-x: none;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal-header {
+        flex-direction: column;
+    }
+    
 }
 
 .modal-header {
-    position: relative;
+    position: sticky;
     top: 0;
-    display: grid;
-    grid-template-columns: auto 1fr 0.1fr;
+    margin-top: 0px;
+    display: flex;
     align-items: center;
     grid-gap: 20px;
     align-items:center;
@@ -196,20 +243,33 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    gap: 5px;
 }
 
 .song-card {
-    width: 95%;
     border: solid;
     border-color: #E6B2BA;
     background-color:  #FFF7F3;
+    width: 90%;
     display: flex;
     align-items: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    height: 20%;
     border-radius: 10px;
+    justify-content: space-between;
 }
+
+@media (max-width: 768px) {
+    .song-card {
+        border: solid;
+        border-color: #E6B2BA;
+        background-color:  #FFF7F3;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+        justify-content: space-between;
+    }
+}
+
 
 .song-card img {
     height: 50px;
@@ -241,4 +301,3 @@ footer {
     display: flex;
     margin-right: 10px;
 }
-

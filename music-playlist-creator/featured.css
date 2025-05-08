@@ -69,6 +69,18 @@ footer {
     align-content: center;
 }
 
+@media (max-width: 768px) {
+    .featured-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        padding: 10px;
+    }
+}
+
 .playlist-info-container {
     height: 60%;
     display: flex;
