@@ -48,6 +48,7 @@ header ul {
     gap: 1rem;
     width: 100%;
     justify-content: center;
+    margin: 0px 0px 10px 0px
 }
 
 header ul {
@@ -63,11 +64,12 @@ footer {
 .playlist-cards {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    row-gap: 5vh;
+    row-gap: 10px;
     column-gap: 10vw;
     align-items:center;
     justify-items: center;
     margin-top: 10px;
+    overflow-x: none;
 }
 
 
@@ -78,9 +80,9 @@ footer {
     border: solid;
     border-radius: 10px;
     border-color: #E6B2BA;
-    max-height: 40vh;
-    max-width: 15vw;
     background-color:  #FFF7F3;
+    height: 275px;
+    width: 175px;
 }
 
 .playlist-card img {
@@ -101,7 +103,9 @@ footer {
 }
 
 .playlist-card h2 {
-    font-size: 1rem
+    font-size: .9rem;
+    padding: 0px;
+    margin: 0px;
 }
 
 .playlist-card .favorite .heart:hover {
@@ -121,15 +125,11 @@ footer {
     
 }
 
-.playlist-card-info h2 {
-    padding: 0px;
-    margin: 0px;
-}
 
 .playlist-card-info p {
     padding: 0px;
     margin: 5px 0px 0px 0px;
-
+    font-size: 0.7rem;
 }
 
 /* ----- Model ----- */
@@ -143,6 +143,7 @@ footer {
     justify-content: center;
     align-items: center;
     visibility: hidden;
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .modal-overlay.active {
@@ -192,11 +193,16 @@ footer {
     overflow-y: scroll;
     padding: 10px;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .song-card {
-    width: 100%;
-    background-color:  #FAD0C4;
+    width: 95%;
+    border: solid;
+    border-color: #E6B2BA;
+    background-color:  #FFF7F3;
     display: flex;
     align-items: center;
     margin-top: 5px;
