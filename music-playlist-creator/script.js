@@ -45,10 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
             
         })
         .catch((error) => {
-
-        })
-
-        
+            // TO DO: WRITE SOMETHING HERE PLZ!
+        })  
 })
 
 // Click event function for playlist tiles
@@ -60,7 +58,6 @@ const addClickEvent = (playlists) => {
 
         card.addEventListener('click', (e) => {
             const heart =  document.querySelector(`[data-playlist-id = "${playlistID}"] .heart path`)
-            console.log(e.target);
             const overlay = document.querySelector('.modal-overlay')
             const playlist = playlists.filter((playlist) => playlist.playlistID == playlistID)
             populateModal(playlist)
@@ -136,13 +133,11 @@ const addLikeEventListener = (playlistID) => {
 
 }
 
-const populateSongList = (songs) => {
-    songListContainer = document.querySelector('.song-list')
-
+export const populateSongList = (songs) => {
+    const songListContainer = document.querySelector('.song-list')
 
     songs.forEach((song) => {
-        const {title, artist, album, duration, songID, cover_art} = song
-
+        const {title, artist, album, duration, cover_art} = song
 
         const songCard = document.createElement('div')
         songCard.classList.add('song-card')
