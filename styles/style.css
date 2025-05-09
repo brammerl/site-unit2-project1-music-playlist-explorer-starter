@@ -2,6 +2,8 @@ body {
     font-family: "Roboto", sans-serif;
     font-weight: lighter;
     background-color: #FFF7F3;
+    height: 100%;
+    overflow-y: auto;
 }
 
 .playwrite-us-modern-100{
@@ -61,6 +63,10 @@ footer {
     font-size: 0.5rem;
 }
 
+main {
+    overflow: auto;
+}
+
 /* ----- Card Grid ----- */
 .playlist-cards {
     display: grid;
@@ -70,7 +76,6 @@ footer {
     align-items:center;
     justify-items: center;
     margin-top: 10px;
-    overflow-x: none;
 }
 
 @media (max-width: 1279px) {
